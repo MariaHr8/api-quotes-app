@@ -1,6 +1,8 @@
 let personName = document.getElementById('name');
 let animeName = document.getElementById('anime');
 let quoteName = document.getElementById('quote');
+let buttonNew = document.getElementById('get-btn');
+let list = document.getElementById('list');
 
 function getNew() {
     fetch('https://animechan.vercel.app/api/random')
@@ -14,6 +16,7 @@ function getNew() {
                 // Examine the text in the response
                 response.json()
                     .then(function (data) {
+                        list.innerHTML = '';
                         personName.innerHTML = data.character;
                         animeName.innerHTML = data.anime;
                         quoteName.innerHTML = data.quote;
@@ -26,7 +29,6 @@ function getNew() {
 }
 
 function loadAnimeQuotes(e) {
-    console.log(animeName.innerHTML);
     fetch(`https://animechan.vercel.app/api/quotes/anime?title=` + animeName.innerHTML)
         .then(response => {
             if (response.status !== 200) {
@@ -36,7 +38,19 @@ function loadAnimeQuotes(e) {
 
             response.json()
                 .then(data => {
-                    console.log(data);
+                    list.innerHTML = '';
+                    personName.innerHTML = animeName.innerHTML;
+                    animeName.innerHTML = '';
+                    quoteName.innerHTML = '';
+                    list.innerHTML += `
+                        ${data.map(i => {
+                        return `<blockquote>"${i.quote}"</blockquote> by <cite>${i.character}</cite>
+                        `
+                    })}`;
+                    document.getElementById('back-btn').style.display = 'block';
+
+                    console.log(document.body.innerHTML);
+
                 })
         }
         )

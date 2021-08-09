@@ -10,12 +10,27 @@
 </head>
 
 <body>
-    <h1 id="name"></h1>
-    <p id="quote"></p>
+    <div id="navbar">
+        <a class="active" href="index.html">Home</a>
+        <a href="#news">Anime List</a>
+        <a href="#about">About</a>
+    </div>
+    <div id="quote-container">
+        <h1 id="name"></h1>
+        <p id="quote"></p>
+        <a href="javascript:;" onclick="loadAnimeQuotes()" id="anime"></a>
+    </div>
+    <br>
     <a href="javascript:;" onclick="loadAnimeQuotes()" id="anime"></a>
-    <button id="get-btn" onclick="getNew()">Get Random Quote</button>
+    <div class="wrapper">
+        <button id="get-btn" onclick="getNew()">Get A Random Quote</button>
+    </div>
     <ul id="list"></ul>
     <a href="/index.html" id="back-btn">Go back</a>
+<br>
+<br>
+
+
     <script src="index.js"></script>
 </body>
 

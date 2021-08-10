@@ -2,7 +2,9 @@ let personName = document.getElementById('name');
 let animeName = document.getElementById('anime');
 let quoteName = document.getElementById('quote');
 let buttonNew = document.getElementById('get-btn');
-let list = document.getElementById('list');
+let quoteList = document.getElementById('list');
+let animeList = document.getElementById('list-animes');
+
 
 function getNew() {
     fetch('https://animechan.vercel.app/api/random')
@@ -16,7 +18,7 @@ function getNew() {
                 // Examine the text in the response
                 response.json()
                     .then(function (data) {
-                        list.innerHTML = '';
+                        quoteList.innerHTML = '';
                         personName.innerHTML = data.character;
                         animeName.innerHTML = data.anime;
                         quoteName.innerHTML = data.quote;
@@ -38,11 +40,11 @@ function loadAnimeQuotes(e) {
 
             response.json()
                 .then(data => {
-                    list.innerHTML = '';
+                    quoteList.innerHTML = '';
                     personName.innerHTML = animeName.innerHTML;
                     animeName.innerHTML = '';
                     quoteName.innerHTML = '';
-                    list.innerHTML +=
+                    quoteList.innerHTML +=
                         data.map(i => {
                             return `<blockquote>"${i.quote}"</blockquote> by <cite>${i.character}</cite>`
                         }).join('');
@@ -55,8 +57,6 @@ function loadAnimeQuotes(e) {
         )
 }
 // Getting the list of animes
-var animeList = document.getElementById('list-animes');
-
 function loadAnimeNames(e) {
     fetch('https://animechan.vercel.app/api/available/anime')
         .then(response => {
@@ -70,8 +70,9 @@ function loadAnimeNames(e) {
                     data.sort();
                     animeList.innerHTML = data.map((anime) => {
                         return `<li>${anime}</li>`
-                    }).join('')
+                    }).join('');
                 })
+
         }
         )
 }

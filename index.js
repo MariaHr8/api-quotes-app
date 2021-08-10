@@ -44,9 +44,9 @@ function loadAnimeQuotes(e) {
                     quoteName.innerHTML = '';
                     list.innerHTML += `
                         ${data.map(i => {
-                        return `<blockquote>"${i.quote}"</blockquote> by <cite>${i.character}</cite>
-                        `
-                    })}`;
+                        return `<blockquote>"${i.quote}"</blockquote> by <cite>${i.character}</cite>`
+                    })}
+                    `;
                     document.getElementById('back-btn').style.display = 'block';
 
                     console.log(document.body.innerHTML);

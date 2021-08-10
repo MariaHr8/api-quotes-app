@@ -43,16 +43,22 @@ ul blockquote cite {
 #get-btn {
   border-radius: 5px;
   font-size: 20px;
+  font-family: "Georama", sans-serif;
+  padding:0.3em 1.2em;
+  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+   text-decoration:none;
+
+
+}
+
+#get-btn:hover{
+  border-color: rgba(255,255,255,1);
 }
 
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#quote-container {
-  text-align: center;
 }
 
 #navbar {
@@ -74,5 +80,20 @@ ul blockquote cite {
 }
 
 #navbar a:hover {
-    background-color: rgb(32, 32, 100);
+  background-color: rgb(32, 32, 100);
+}
+
+#quote-container {
+  text-align: center;
+  margin: 0px 20%;
+  padding-top: 5%;
+}
+
+#quote-container a {
+  color: white;
+}
+
+#list{
+  padding-bottom: 5%;
+
 }

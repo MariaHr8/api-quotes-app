@@ -1,1 +1,1 @@
-# anime-quotes-app
+# api-quotes-app

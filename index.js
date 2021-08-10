@@ -42,15 +42,35 @@ function loadAnimeQuotes(e) {
                     personName.innerHTML = animeName.innerHTML;
                     animeName.innerHTML = '';
                     quoteName.innerHTML = '';
-                    list.innerHTML += `
-                        ${data.map(i => {
-                        return `<blockquote>"${i.quote}"</blockquote> by <cite>${i.character}</cite>`
-                    })}
-                    `;
+                    list.innerHTML +=
+                        data.map(i => {
+                            return `<blockquote>"${i.quote}"</blockquote> by <cite>${i.character}</cite>`
+                        }).join('');
                     document.getElementById('back-btn').style.display = 'block';
 
                     console.log(document.body.innerHTML);
 
+                })
+        }
+        )
+}
+// Getting the list of animes
+var animeList = document.getElementById('list-animes');
+
+function loadAnimeNames(e) {
+    fetch('https://animechan.vercel.app/api/available/anime')
+        .then(response => {
+            if (response.status !== 200) {
+                console.log('A problem occured! Status code: ' + response.status);
+                return;
+            }
+
+            response.json()
+                .then(data => {
+                    data.sort();
+                    animeList.innerHTML = data.map((anime) => {
+                        return `<li>${anime}</li>`
+                    }).join('')
                 })
         }
         )

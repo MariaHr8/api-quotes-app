@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Georama&display=swap");
 
+/*index.html*/
 html,
 body {
   margin: 0;
@@ -44,15 +45,12 @@ ul blockquote cite {
   border-radius: 5px;
   font-size: 20px;
   font-family: "Georama", sans-serif;
-  padding:0.3em 1.2em;
-  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-   text-decoration:none;
-
-
+  padding: 0.3em 1.2em;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
 }
 
-#get-btn:hover{
-  border-color: rgba(255,255,255,1);
+#get-btn:hover {
+  border-color: rgba(255, 255, 255, 1);
 }
 
 .wrapper {
@@ -93,7 +91,20 @@ ul blockquote cite {
   color: white;
 }
 
-#list{
+#list {
   padding-bottom: 5%;
-
 }
+
+/*list.html*/
+#container-animes {
+  text-align: center;
+}
+
+#container-animes ul {
+  columns: 3;
+  
+}
+#container-animes ul li{
+  padding: 10px;
+}
+

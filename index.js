@@ -21,7 +21,7 @@ function getNew() {
                         quoteList.innerHTML = '';
                         personName.innerHTML = data.character;
                         animeName.innerHTML = data.anime;
-                        quoteName.innerHTML = data.quote;
+                        quoteName.innerHTML = '"' + data.quote + '"';
                     });
             }
         )
